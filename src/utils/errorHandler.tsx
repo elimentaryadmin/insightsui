@@ -464,16 +464,17 @@ const errorHandler = (error: ErrorResponse) => {
   const operationName = error?.operation?.operationName || '';
   if (error.graphQLErrors) {
     for (const err of error.graphQLErrors) {
-      // Convert GraphQLFormattedError to GraphQLError
-      const graphQLError: GraphQLError = {
-        ...err,
-        nodes: [],
-        source: undefined,
-        positions: [],
-        originalError: null,
-        path: err.path || [],
-        extensions: err.extensions || {}
-      };
+      // Create a proper GraphQLError instance
+      const graphQLError = new GraphQLError(
+        err.message,
+        {
+          nodes: [],
+          source: undefined,
+          positions: [],
+          path: err.path || [],
+          extensions: err.extensions || {}
+        }
+      );
       errorHandlers.get(operationName)?.handle(graphQLError);
     }
   }
@@ -483,8 +484,10 @@ export default errorHandler;
 
 export const parseGraphQLError = (error: ApolloError) => {
   if (!error) return null;
-  const graphQLErrors: GraphQLError = error.graphQLErrors?.[0];
-  const extensions = graphQLErrors?.extensions || {};
+  const graphQLError = error.graphQLErrors?.[0];
+  if (!graphQLError) return null;
+  
+  const extensions = graphQLError.extensions || {};
   return {
     message: extensions.message as string,
     shortMessage: extensions.shortMessage as string,
