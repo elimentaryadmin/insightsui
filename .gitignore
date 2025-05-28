@@ -31,3 +31,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts 
+
+# Ignore yarn install state
+.yarn/install-state.gz
+
+# Ignore SQLite database
+db.sqlite3
+
+# Ignore logs directory
+logs/
