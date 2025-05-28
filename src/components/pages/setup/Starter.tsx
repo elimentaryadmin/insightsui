@@ -40,7 +40,7 @@ export default function Starter(props) {
   return (
     <>
       <Typography.Title level={1} className="mb-3">
-        Connect a data source
+        Select a data source
       </Typography.Title>
       <Row className="mt-6" gutter={[16, 16]}>
         <DataSourceIterator

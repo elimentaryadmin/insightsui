@@ -61,7 +61,7 @@ const ComingSoon = styled.div`
   padding: 2px 6px;
   border-radius: 999px;
   &:before {
-    content: 'COMING SOON';
+    content: 'Coming Soon';
   }
 `;
 

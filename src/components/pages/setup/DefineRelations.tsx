@@ -277,7 +277,7 @@ export default function DefineRelations(props: Props) {
       <Text>
         You can create relationships between selected tables. We provide
         suggested relationships based on primary and foreign keys defined in
-        your data source. The relationships are then added to data models.
+        your data source. The relationships are then added to data domain.
       </Text>
       {showNoRecommendationAlert && (
         <Alert
