@@ -464,7 +464,17 @@ const errorHandler = (error: ErrorResponse) => {
   const operationName = error?.operation?.operationName || '';
   if (error.graphQLErrors) {
     for (const err of error.graphQLErrors) {
-      errorHandlers.get(operationName)?.handle(err);
+      // Convert GraphQLFormattedError to GraphQLError
+      const graphQLError: GraphQLError = {
+        ...err,
+        nodes: [],
+        source: undefined,
+        positions: [],
+        originalError: null,
+        path: err.path || [],
+        extensions: err.extensions || {}
+      };
+      errorHandlers.get(operationName)?.handle(graphQLError);
     }
   }
 };
