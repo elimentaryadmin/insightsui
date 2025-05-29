@@ -97,13 +97,6 @@ export default function Home() {
           onSelect={onSelectQuestion}
         />
       )}
-
-      {!isSampleDataset && (
-        <RecommendedQuestionsInstruction
-          onSelect={onCreateResponse}
-          loading={threadCreating}
-        />
-      )}
       <Prompt
         ref={$prompt}
         {...askPrompt}
