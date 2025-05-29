@@ -331,8 +331,8 @@ export default function useAskPrompt(threadId?: number) {
     onStoreThreadQuestions,
     inputProps: {
       placeholder: threadId
-        ? 'Ask follow-up questions to explore your data'
-        : 'Ask to explore your data',
+        ? 'Ask follow-up questions to generate insights'
+        : 'Generate custom insights using your AI co-pilot',
     },
   };
 }

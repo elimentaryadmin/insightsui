@@ -48,8 +48,6 @@ export const makeStoriesPlayer =
       {
         [LEARNING.DATA_MODELING_GUIDE]: () =>
           playDataModelingGuide(...args, dispatcher),
-        [LEARNING.SWITCH_PROJECT_LANGUAGE]: () =>
-          playSwitchProjectLanguageGuide(...args, dispatcher),
         [LEARNING.KNOWLEDGE_GUIDE]: () =>
           playKnowledgeGuide(...args, dispatcher),
         [LEARNING.SAVE_TO_KNOWLEDGE]: () =>

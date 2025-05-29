@@ -45,38 +45,15 @@ const EmptyDashboard = (props: {
         style={{ height: '100%' }}
       >
         <Logo size={48} color="var(--gray-8)" />
+        <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">Overview</h1>
+          <h4 className="text tracking-tight">Your customised summary</h4>
+        </div>
+      </div>
         <div className="text-lg text-medium text-center gray-8 mt-3">
-          No charts have been added yet
+          COMING SOON
         </div>
-        <div className="gray-7">
-          Follow these steps to pin charts to your dashboard.{' '}
-          <Link
-            className="gray-8 underline"
-            href="https://docs.getwren.ai/oss/guide/home/dashboard"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Learn more
-          </Link>
-        </div>
-        <Row className="mt-4" gutter={[16, 16]}>
-          <StepIterator
-            data={[
-              {
-                title: '1. Create a thread',
-                image: '/images/dashboard/s1.jpg',
-              },
-              {
-                title: '2. Generate a chart',
-                image: '/images/dashboard/s2.jpg',
-              },
-              {
-                title: '3. Pin to dashboard',
-                image: '/images/dashboard/s3.jpg',
-              },
-            ]}
-          />
-        </Row>
       </div>
     );
   }
