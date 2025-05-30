@@ -1056,6 +1056,9 @@ export class AskingService implements IAskingService {
   private async getDeployId() {
     const { id } = await this.projectService.getCurrentProject();
     const lastDeploy = await this.deployService.getLastDeployment(id);
+    if (!lastDeploy) {
+      throw new Error('No successful deployment found. Please deploy your model first.');
+    }
     return lastDeploy.hash;
   }
 
