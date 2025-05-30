@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { attachLoading } from '@/utils/helper';
 
 const PromptButton = styled(Button)`
-  min-width: 72px;
+  min-width: 100px;
 `;
 
 interface Props {

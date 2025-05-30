@@ -8,9 +8,28 @@ const httpLink = new HttpLink({
   uri: '/api/graphql',
 });
 
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        askingTask: {
+          merge(existing, incoming) {
+            return incoming;
+          },
+        },
+      },
+    },
+  },
+});
+
 const client = new ApolloClient({
   link: from([apolloErrorLink, httpLink]),
-  cache: new InMemoryCache(),
+  cache,
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: 'cache-and-network',
+    },
+  },
 });
 
 export default client;
