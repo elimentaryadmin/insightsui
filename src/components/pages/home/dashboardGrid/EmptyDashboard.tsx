@@ -44,7 +44,6 @@ const EmptyDashboard = (props: {
         className="d-flex align-center justify-center flex-column -mt-8"
         style={{ height: '100%' }}
       >
-        <Logo size={48} color="var(--gray-8)" />
         <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Overview</h1>
